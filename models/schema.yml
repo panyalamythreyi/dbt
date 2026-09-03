@@ -1,5 +1,6 @@
 models:
   - name: dim_listings_cleansed
+    description: "Cleansed dimension table for listings"
     data_tests:
       - min_row_count_check:
           arguments:
@@ -7,11 +8,13 @@ models:
           severity: WARN #takes priority over the default severity of the test
     columns:
       - name: listing_id
+        description: "Unique identifier for the listing"
         data_tests:
           - unique
           - not_null
 
       - name: host_id
+        description: "Unique identifier for the host"
         data_tests:
           - not_null
           - relationships:
@@ -20,6 +23,7 @@ models:
                 field: host_id
 
       - name: room_type
+        description: "Type of room for the listing"
         data_tests:
           - accepted_values:
               arguments:
@@ -29,28 +33,34 @@ models:
                         'Hotel room']
 
       - name: minimum_nights
+        description: '{{ doc("dim_listing_cleansed__minimum_nights") }}'
         data_tests:
           - positive_values
 
   - name: dim_hosts_cleansed   #contract is to check schema and its columns with data type match with db, if not match then it will throw error
+    description: "Cleansed dimension table for hosts"
     config:
       contract:
         enforced: true
     columns:
       - name: host_id
+        description: "Unique identifier for the host"
         data_type: integer
-        constraints:   #testing will be performed during data insert time 
+        constraints:   #testing will be performed during data insert time by dbt run command
           - type: not_null
-        data_tests:
+        data_tests:  #executed during dbt test command
           - unique
+         
           
 
       - name: host_name
+        description: "Name of the host"
         data_type: string
         data_tests:
           - not_null
 
       - name: is_superhost
+        description: "Indicates if the host is a superhost"
         data_type: string
         data_tests:
           - accepted_values:
@@ -58,10 +68,12 @@ models:
                 values: ['t', 'f']
 
       - name: updated_at
+        description: "Timestamp when the host information was last updated"
         data_type: timestamp
           
 
       - name: created_at
+        description: "Timestamp when the host was created"
         data_type: timestamp
         
           

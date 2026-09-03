@@ -1,6 +1,7 @@
+{# This model cleanses the dim_hosts table #}
 
 {{ config(
-    materialized='view'
+    materialized='table'
 ) }}
 
 with src_hosts as (
