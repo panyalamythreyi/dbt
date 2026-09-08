@@ -1,0 +1,14 @@
+
+exposures:
+  - name: executive_dashboard
+    label: Executive Dashboard
+    type: dashboard
+    maturity: low
+    url: https://b4e203b1.us1a.app.preset.io/superset/dashboard/7/?native_filters_key=G4sq7mM5pp0G5VZxPg9P1g
+    description: Covid dashboard for executives to monitor the impact of Covid on Airbnb's business.
+
+
+
+    owner:
+      name: test
+      email: test@gmail.com
