@@ -1,3 +1,4 @@
+
 with listings as (
     select * from {{ ref('dim_listings_cleansed') }}
 ),

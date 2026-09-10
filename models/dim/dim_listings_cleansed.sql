@@ -1,6 +1,8 @@
 
 {{ config(
-    materialized='view'
+    materialized='table',
+    event_date = 'created_at'
+
 ) }}
 
 with src_listings as (

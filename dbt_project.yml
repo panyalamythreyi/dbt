@@ -34,6 +34,9 @@ models:
       +materialized: table
     src:
       +materialized: ephemeral
+    fct:
+      tags: ['fact']
+      
 
 # Storing test failure results in the data warehouse schema __test_results. This is useful for debugging test failures.
 tests:
