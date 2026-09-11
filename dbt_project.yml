@@ -35,7 +35,7 @@ models:
     src:
       +materialized: ephemeral
     fct:
-      tags: ['fact']
+      +tags: ['fact']
       
 
 # Storing test failure results in the data warehouse schema __test_results. This is useful for debugging test failures.
@@ -43,3 +43,9 @@ tests:
   airbnb:
     +store_failures: true
     +schema: __test_results
+
+
+
+
+vars:
+  user_name: "vars dbt default"

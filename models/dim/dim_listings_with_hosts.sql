@@ -3,7 +3,7 @@ with listings as (
     select * from {{ ref('dim_listings_cleansed') }}
 ),
 hosts as (
-    select * from {{ ref('dim_hosts_cleansed') }}
+    select * from {{ ref('dim_hosts_cleansed', v=2) }}
 )
 select
     l.listing_id,
